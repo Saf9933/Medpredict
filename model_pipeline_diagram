@@ -1,0 +1,17 @@
+digraph {
+	A [label="CSV Dataset"]
+	B [label="Data Preprocessing"]
+	C [label="PubMedBERT Tokenizer"]
+	D [label="PubMedBERT Model"]
+	E [label="Softmax Layer"]
+	F [label="Predicted Answer (A/B/C/D)"]
+	G [label="Confidence + Difficulty"]
+	H [label="GPT Feedback / Textbook Match"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G
+	F -> H
+}

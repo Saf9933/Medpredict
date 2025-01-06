@@ -1,0 +1,114 @@
+{
+    "title": "Deteriorating Stroke Patient and Family Conflict",
+    "chief_complaint": "74M admitted 2 days ago with massive stroke, now unresponsive and worsening.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "BP rises to 190/100, GCS 7" },
+        { "minutes": 10, "effect": "No spontaneous movements, pupils sluggish" },
+        { "minutes": 15, "effect": "HR irregular, Cheyne-Stokes respirations" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "Patient is comatose in ICU. No recent improvement. Nurse says the family is asking about 'what happens next.'"
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "What history/background would you check?",
+        "options": [
+          { "label": "Advanced directives", "response": "None on file", "score": 1 },
+          { "label": "Past medical history", "response": "HTN, AFib, mild dementia", "score": 0.5 },
+          { "label": "Baseline function", "response": "Lived independently but had recent cognitive decline", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Who is the decision maker?",
+        "options": [
+          { "label": "Wife (present)", "response": "Wife is legally next of kin and present", "score": 2 },
+          { "label": "Daughter (wants everything done)", "response": "Wants full code. Disagrees with wife.", "score": 1 },
+          { "label": "Family friend", "response": "Supportive but not legally relevant", "score": 0 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Check clinical status:",
+        "options": [
+          { "label": "GCS score", "response": "GCS 6 (no eye opening, moaning, flexion to pain)", "score": 1 },
+          { "label": "Neuro signs", "response": "Pupils sluggish, no purposeful movement", "score": 1 },
+          { "label": "Respiratory pattern", "response": "Cheyne-Stokes, irregular breathing", "score": 1 }
+        ],
+        "next_step": "discussion"
+      },
+      {
+        "id": "discussion",
+        "type": "question",
+        "prompt": "How would you start the family meeting?",
+        "options": [
+          { "label": "Clarify goals of care", "response": "Asked wife about what patient would have wanted", "score": 2 },
+          { "label": "Present code options bluntly", "response": "Leads to conflict. Daughter becomes upset.", "score": -1 },
+          { "label": "Delay discussion", "response": "Misses opportunity for shared decision making", "score": -1 }
+        ],
+        "next_step": "management"
+      },
+      {
+        "id": "management",
+        "type": "question",
+        "prompt": "What decisions are appropriate now?",
+        "options": [
+          { "label": "Recommend DNR/DNI", "response": "Explained poor prognosis. Wife agrees to DNR.", "score": 2 },
+          { "label": "Start full code protocol", "response": "Against wife's wishes. Unethical.", "score": -2 },
+          { "label": "Call ethics consult", "response": "Reasonable if conflict persists", "score": 1 }
+        ],
+        "next_step": "followup"
+      },
+      {
+        "id": "followup",
+        "type": "question",
+        "prompt": "Next communication step:",
+        "options": [
+          { "label": "Document family meeting", "response": "Goals, decisions, and consent documented clearly", "score": 1 },
+          { "label": "Call media to cover case", "response": "Highly inappropriate", "score": -2 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "What is your final decision summary?",
+        "expected_answer": "Patient placed on comfort care with DNR/DNI after discussion with wife"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Advanced directives",
+          "Baseline function",
+          "Wife is next of kin",
+          "Clarify goals of care",
+          "Recommend DNR/DNI",
+          "Document family meeting"
+        ],
+        "explanation": "In the absence of advanced directives, the next of kin is the legally appropriate surrogate. Conflict between family members must be addressed respectfully, but the spouse’s decision stands. Comfort care and DNR were ethically appropriate given prognosis.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed an end-of-life ethics simulation involving surrogate decision-making. Based on their decisions [INSERT TIMELINE], provide thoughtful, ethical teaching feedback. Include guidance on conflict resolution, documentation, and communication style."
+  }
+  

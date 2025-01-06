@@ -1,0 +1,152 @@
+{
+    "title": "Confusion in a 74-Year-Old Man",
+    "chief_complaint": "74M brought to ED by family for sudden confusion and lethargy.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "GCS drops to 13, speech slurred" },
+        { "minutes": 10, "effect": "GCS 11, O2 91%, mild fever" },
+        { "minutes": 15, "effect": "GCS 9, neck stiffness appears, febrile 38.9°C" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "Family says he 'was fine yesterday' but became confused this morning. No known trauma. Patient is drowsy but arousable."
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "What would you ask the family?",
+        "options": [
+          { "label": "Timeline of symptoms", "response": "Confused since 6am. Last seen normal at 10pm.", "score": 1 },
+          { "label": "Medication history", "response": "Takes HCTZ and aspirin.", "score": 0.5 },
+          { "label": "Alcohol or substance use", "response": "No alcohol. No known toxins.", "score": 0 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Further history from EMS?",
+        "options": [
+          { "label": "Vitals during transport", "response": "BP 128/80, HR 96, O2 96%, temp 37.9°C", "score": 1 },
+          { "label": "Mental status", "response": "GCS 14, oriented to name only", "score": 1 },
+          { "label": "Recent travel", "response": "No travel, lives with daughter", "score": 0 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Initial examination findings:",
+        "options": [
+          { "label": "Perform full neuro exam", "response": "No focal deficits, sluggish pupils, neck supple", "score": 1 },
+          { "label": "Check for rash", "response": "No petechiae or rashes", "score": 0 },
+          { "label": "Assess hydration", "response": "Mucous membranes dry", "score": 0.5 }
+        ],
+        "next_step": "labs"
+      },
+      {
+        "id": "labs",
+        "type": "diagnostics",
+        "prompt": "Order initial labs:",
+        "tests": [
+          {
+            "name": "Electrolytes",
+            "result": "Na+ 118 mmol/L, others normal",
+            "time_to_result": 3,
+            "score": 2
+          },
+          {
+            "name": "CT head (non-contrast)",
+            "result": "No acute bleed or mass. Mild atrophy.",
+            "time_to_result": 5,
+            "score": 1
+          },
+          {
+            "name": "CBC",
+            "result": "WBC 12.5, Hgb normal",
+            "time_to_result": 3,
+            "score": 0.5
+          },
+          {
+            "name": "Urinalysis",
+            "result": "Unremarkable",
+            "time_to_result": 2,
+            "score": 0
+          },
+          {
+            "name": "Blood cultures",
+            "result": "Pending...",
+            "time_to_result": 10,
+            "score": 0
+          }
+        ],
+        "next_step": "management"
+      },
+      {
+        "id": "management",
+        "type": "question",
+        "prompt": "Initial management options:",
+        "options": [
+          { "label": "Start hypertonic saline", "response": "100mL 3% NaCl started", "score": 2 },
+          { "label": "Start empiric antibiotics", "response": "Given ceftriaxone + vancomycin", "score": 1 },
+          { "label": "Call stroke code", "response": "Not appropriate. CT normal. Delays care.", "score": -1 }
+        ],
+        "next_step": "decision"
+      },
+      {
+        "id": "decision",
+        "type": "question",
+        "prompt": "Next step in workup?",
+        "options": [
+          { "label": "Do lumbar puncture", "response": "CSF: WBC elevated, protein high, glucose low", "score": 2 },
+          { "label": "MRI brain", "response": "Delayed by 2 hours. No acute changes.", "score": -1 },
+          { "label": "Repeat CT head", "response": "No change from prior.", "score": 0 }
+        ],
+        "next_step": "monitoring"
+      },
+      {
+        "id": "monitoring",
+        "type": "question",
+        "prompt": "Monitor progress:",
+        "options": [
+          { "label": "Track GCS", "response": "Improves to GCS 13 after saline + antibiotics", "score": 1 },
+          { "label": "Repeat Na+ after 2 hrs", "response": "Improved to 122 mmol/L", "score": 1 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "What is your final diagnosis?",
+        "expected_answer": "Hyponatremia with possible meningitis"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Timeline of symptoms",
+          "Electrolytes",
+          "CT head",
+          "Hypertonic saline",
+          "Lumbar puncture",
+          "Empiric antibiotics"
+        ],
+        "explanation": "The patient presented with confusion due to acute symptomatic hyponatremia. However, evolving fever, WBC, and CSF findings also suggest meningitis. Managing both quickly is crucial. CT ruled out bleeding. Stroke code was not indicated.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed a neurology simulation with a case of confusion. Their decisions were: [INSERT TIMELINE]. Provide clinical feedback on their performance, missteps, and teaching points, with supportive tone."
+  }
+  

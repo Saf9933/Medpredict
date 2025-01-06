@@ -1,0 +1,152 @@
+{
+    "title": "Abdominal Pain in a 28-Year-Old Female",
+    "chief_complaint": "28F presents with right lower quadrant pain and dizziness.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "BP drops to 100/60, HR 105" },
+        { "minutes": 10, "effect": "BP 88/50, HR 118, pallor noted" },
+        { "minutes": 15, "effect": "Syncopal episode, severe abdominal guarding" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "Patient appears pale and anxious. Pain is rated 7/10. Onset 6 hours ago, gradually worsening. Nurse mentions no vitals yet."
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "What history would you ask?",
+        "options": [
+          { "label": "Last menstrual period", "response": "6 weeks ago. Not regular.", "score": 2 },
+          { "label": "Nausea, vomiting", "response": "Mild nausea, no vomiting", "score": 0.5 },
+          { "label": "Sexual history", "response": "Sexually active, not using contraception", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Explore further history:",
+        "options": [
+          { "label": "Past abdominal surgeries", "response": "Appendectomy not done. No prior surgery.", "score": 0 },
+          { "label": "Fever or chills", "response": "No fever reported", "score": 0 },
+          { "label": "Urinary symptoms", "response": "Mild urgency, no dysuria", "score": 0 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Physical exam findings:",
+        "options": [
+          { "label": "Check vitals", "response": "BP 100/68, HR 102, T 37.1°C", "score": 1 },
+          { "label": "Palpate abdomen", "response": "Tender RLQ with rebound, no guarding", "score": 1 },
+          { "label": "Pelvic exam", "response": "Adnexal tenderness on right, mild cervical motion tenderness", "score": 2 }
+        ],
+        "next_step": "labs"
+      },
+      {
+        "id": "labs",
+        "type": "diagnostics",
+        "prompt": "Initial lab tests:",
+        "tests": [
+          {
+            "name": "Beta-hCG",
+            "result": "Positive, 2500 mIU/mL",
+            "time_to_result": 3,
+            "score": 2
+          },
+          {
+            "name": "CBC",
+            "result": "Hb 10.1 g/dL, WBC slightly elevated", 
+            "time_to_result": 3,
+            "score": 0.5
+          },
+          {
+            "name": "CRP",
+            "result": "Mildly elevated",
+            "time_to_result": 2,
+            "score": 0
+          },
+          {
+            "name": "Urinalysis",
+            "result": "No infection",
+            "time_to_result": 2,
+            "score": 0
+          }
+        ],
+        "next_step": "imaging"
+      },
+      {
+        "id": "imaging",
+        "type": "diagnostics",
+        "prompt": "Select imaging studies:",
+        "tests": [
+          {
+            "name": "Transvaginal ultrasound",
+            "result": "No intrauterine pregnancy. Right adnexal mass with free fluid.",
+            "time_to_result": 4,
+            "score": 3
+          },
+          {
+            "name": "Abdominal X-ray",
+            "result": "Unremarkable",
+            "time_to_result": 3,
+            "score": 0
+          },
+          {
+            "name": "CT abdomen",
+            "result": "Not advised pre-hCG. Risk of delay and radiation.",
+            "time_to_result": 5,
+            "score": -1
+          }
+        ],
+        "next_step": "management"
+      },
+      {
+        "id": "management",
+        "type": "question",
+        "prompt": "Management plan:",
+        "options": [
+          { "label": "Start IV fluids", "response": "2L NS given via wide-bore access", "score": 1 },
+          { "label": "Prepare for surgery", "response": "OB-GYN consulted. OR team notified.", "score": 2 },
+          { "label": "Give antibiotics", "response": "Started empiric ceftriaxone + metronidazole", "score": 0.5 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "What is your final diagnosis?",
+        "expected_answer": "Ruptured ectopic pregnancy"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Last menstrual period",
+          "Sexual history",
+          "Pelvic exam",
+          "Beta-hCG",
+          "Transvaginal ultrasound",
+          "Start IV fluids",
+          "Prepare for surgery"
+        ],
+        "explanation": "This is a classic case of ruptured ectopic pregnancy. The positive hCG without intrauterine gestation and free pelvic fluid are key findings. Early recognition and urgent surgical management are critical.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed a GI simulation for lower abdominal pain in a young woman. Based on their decisions: [INSERT TIMELINE], provide clinical feedback on their diagnostic reasoning, timeliness, and accuracy. Use a supportive tone with learning suggestions."
+  }
+

@@ -1,0 +1,136 @@
+{
+    "title": "Cough and Fever in a 2-Year-Old",
+    "chief_complaint": "2-year-old boy brought in for loud cough, fever, and noisy breathing.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "Stridor worsens, O2 drops to 92%" },
+        { "minutes": 10, "effect": "Mild retractions appear, RR increases to 40" },
+        { "minutes": 15, "effect": "Lethargy, poor feeding reported" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "Mother says, 'He’s had a barking cough for 2 days and now he's breathing loudly even at rest.' Child is clingy but alert."
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "What history do you want to ask?",
+        "options": [
+          { "label": "Onset and duration", "response": "Started 2 days ago, cough worsening today", "score": 1 },
+          { "label": "Vaccination history", "response": "Up to date", "score": 0 },
+          { "label": "Feeding and activity", "response": "Still feeding but slightly reduced appetite", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "More questions:",
+        "options": [
+          { "label": "Recent sick contacts?", "response": "Older brother had a cold last week", "score": 0.5 },
+          { "label": "Fever details", "response": "38.4°C yesterday, up to 39.2°C today", "score": 1 },
+          { "label": "Rash or diarrhea?", "response": "No rash, no GI symptoms", "score": 0 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Examine the child:",
+        "options": [
+          { "label": "Observe breathing", "response": "Barking cough, inspiratory stridor, mild retractions", "score": 2 },
+          { "label": "Check vitals", "response": "Temp 39.2°C, HR 130, RR 36, O2 94%", "score": 1 },
+          { "label": "Auscultate lungs", "response": "Good air entry, no crackles or wheeze", "score": 1 }
+        ],
+        "next_step": "labs"
+      },
+      {
+        "id": "labs",
+        "type": "diagnostics",
+        "prompt": "Order investigations:",
+        "tests": [
+          {
+            "name": "Neck X-ray (soft tissue)",
+            "result": "Steeple sign present",
+            "time_to_result": 5,
+            "score": 2
+          },
+          {
+            "name": "CBC",
+            "result": "WBC mildly elevated",
+            "time_to_result": 3,
+            "score": 0
+          },
+          {
+            "name": "Respiratory viral panel",
+            "result": "Parainfluenza virus detected",
+            "time_to_result": 4,
+            "score": 1
+          },
+          {
+            "name": "Chest X-ray",
+            "result": "No infiltrates, clear fields",
+            "time_to_result": 4,
+            "score": 0
+          }
+        ],
+        "next_step": "management"
+      },
+      {
+        "id": "management",
+        "type": "question",
+        "prompt": "Management plan:",
+        "options": [
+          { "label": "Give oral dexamethasone", "response": "0.6 mg/kg PO given", "score": 2 },
+          { "label": "Start nebulized epinephrine", "response": "Given, stridor improves within 15 minutes", "score": 1 },
+          { "label": "Start IV ceftriaxone", "response": "Unnecessary. No signs of bacterial pneumonia.", "score": -1 }
+        ],
+        "next_step": "monitoring"
+      },
+      {
+        "id": "monitoring",
+        "type": "question",
+        "prompt": "Monitor progress:",
+        "options": [
+          { "label": "Reassess breathing", "response": "RR now 28, stridor resolves at rest", "score": 1 },
+          { "label": "O2 saturation monitoring", "response": "Stays above 94%", "score": 1 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "What is your final diagnosis?",
+        "expected_answer": "Croup"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Onset and duration",
+          "Feeding and activity",
+          "Observe breathing",
+          "Neck X-ray",
+          "Resp viral panel",
+          "Oral dexamethasone",
+          "Nebulized epinephrine"
+        ],
+        "explanation": "This is viral croup, caused by parainfluenza. Barking cough, stridor, and response to dexamethasone and epinephrine are classic. No need for antibiotics or chest X-ray unless bacterial pneumonia is suspected.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed a pediatric case involving a toddler with fever and cough. Based on their choices [INSERT TIMELINE], provide teaching-oriented feedback on respiratory assessment, diagnosis, and appropriate treatment choices. Be supportive and concise."
+  }
+  
