@@ -175,11 +175,7 @@ SimulationRun.belongsTo(Simulation,  { foreignKey: 'simulation_id'    });
 
 // API Logs: no FKs
 
-// 5️⃣ Sync & export
-sequelize.sync()
-  .then(() => console.log(' Database synced!'))
-  .catch(e => console.error(' Sync error:', e));
-
+// 5️⃣ Export
   module.exports = {
     sequelize,
     Session,
