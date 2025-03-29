@@ -39,6 +39,11 @@ const routes = [
     component: SimulationView,
   },
   {
+    path: '/research',
+    name: 'ResearchPage',
+    component: () => import('../views/ResearchPage.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/',
   },
