@@ -1,0 +1,9 @@
+node_modules
+.git
+.claude
+*.sqlite
+__pycache__
+finetuned_model
+.env
+backend/.env
+frontend/dist
