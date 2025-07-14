@@ -1,0 +1,155 @@
+{
+    "title": "Chest Pain in a 54-Year-Old",
+    "chief_complaint": "54M presents with sudden chest pain and shortness of breath.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "O2 drops to 94%, mild hypotension" },
+        { "minutes": 10, "effect": "BP drops to 90/60, HR increases to 120" },
+        { "minutes": 15, "effect": "O2 drops to 88%, patient becomes pale and diaphoretic" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "You arrive in the ED. The patient is holding his chest, appears in distress. Nurse says he walked in 10 minutes ago. No vitals yet."
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "What do you want to ask?",
+        "options": [
+          { "label": "Ask about pain characteristics", "response": "Crushing chest pain, 9/10, radiating to left arm", "score": 1 },
+          { "label": "Ask about duration", "response": "Started 30 minutes ago while resting", "score": 1 },
+          { "label": "Ask about associated symptoms", "response": "Diaphoresis, nausea, mild dyspnea", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Any further history?",
+        "options": [
+          { "label": "Ask about risk factors", "response": "Hypertension, smoker, no diabetes", "score": 1 },
+          { "label": "Ask about past cardiac events", "response": "No known heart disease", "score": 0 },
+          { "label": "Ask about medications", "response": "Amlodipine, aspirin (occasional)", "score": 0.5 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "What physical exams do you perform?",
+        "options": [
+          { "label": "Check vitals", "response": "BP 142/90, HR 108, O2 97%, RR 20", "score": 1 },
+          { "label": "Auscultate heart", "response": "Normal S1/S2, no murmurs", "score": 0.5 },
+          { "label": "Inspect for cyanosis", "response": "No cyanosis, some pallor", "score": 0.5 }
+        ],
+        "next_step": "investigations"
+      },
+      {
+        "id": "investigations",
+        "type": "diagnostics",
+        "prompt": "Choose initial investigations:",
+        "tests": [
+          {
+            "name": "ECG",
+            "result": "ST-elevation in II, III, aVF",
+            "time_to_result": 2,
+            "score": 2
+          },
+          {
+            "name": "Troponin I",
+            "result": "Elevated (6.1 ng/mL)",
+            "time_to_result": 5,
+            "score": 2
+          },
+          {
+            "name": "CBC",
+            "result": "Normal WBC and Hgb",
+            "time_to_result": 3,
+            "score": 0
+          },
+          {
+            "name": "Chest X-ray",
+            "result": "No infiltrates, normal cardiac silhouette",
+            "time_to_result": 5,
+            "score": 0
+          },
+          {
+            "name": "D-dimer",
+            "result": "Normal",
+            "time_to_result": 4,
+            "score": -1
+          }
+        ],
+        "next_step": "management1"
+      },
+      {
+        "id": "management1",
+        "type": "question",
+        "prompt": "Choose emergency management steps:",
+        "options": [
+          { "label": "Administer aspirin", "response": "Given 300mg chewable aspirin", "score": 1 },
+          { "label": "Start oxygen", "response": "2L O2 via nasal cannula", "score": 0.5 },
+          { "label": "Insert IV line", "response": "18G IV in place, NS running", "score": 1 }
+        ],
+        "next_step": "management2"
+      },
+      {
+        "id": "management2",
+        "type": "question",
+        "prompt": "Next decisions?",
+        "options": [
+          { "label": "Give nitroglycerin", "response": "Given sublingual NTG, no change in pain", "score": 0.5 },
+          { "label": "Call cardiology", "response": "Cath lab activated, cardiologist notified", "score": 1 },
+          { "label": "Order abdominal CT", "response": "Unnecessary. Delays cardiology consult.", "score": -2 }
+        ],
+        "next_step": "monitoring"
+      },
+      {
+        "id": "monitoring",
+        "type": "question",
+        "prompt": "Monitor progress:",
+        "options": [
+          { "label": "Repeat vitals", "response": "BP now 88/56, HR 122, O2 90%", "score": 1 },
+          { "label": "Repeat ECG", "response": "Same ST elevations", "score": 0 },
+          { "label": "Observe for 30 mins", "response": "Patient deteriorates further", "score": -1 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "Enter your final diagnosis",
+        "expected_answer": "Inferior STEMI"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Ask about pain characteristics",
+          "Ask about duration",
+          "Associated symptoms",
+          "Check vitals",
+          "ECG",
+          "Troponin I",
+          "Administer aspirin",
+          "Call cardiology"
+        ],
+        "explanation": "The case is a classic inferior ST-elevation myocardial infarction (STEMI), confirmed by ECG and troponins. Delays in calling cardiology or ordering unnecessary tests can lead to deterioration. Early aspirin and cath lab activation are life-saving.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "The student completed a 30-minute simulation for a chest pain case. Their decisions were: [INSERT TIMELINE]. Provide personalized feedback explaining what they did well, what they missed or delayed, and how to improve clinical reasoning. Keep tone constructive and educational."
+  }
+  

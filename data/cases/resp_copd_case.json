@@ -1,0 +1,156 @@
+{
+    "title": "Sudden Shortness of Breath in a 67-Year-Old",
+    "chief_complaint": "67M presents with worsening shortness of breath, wheezing, and productive cough.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "O2 drops to 90%, accessory muscle use begins" },
+        { "minutes": 10, "effect": "O2 drops to 86%, RR 30, audible wheeze" },
+        { "minutes": 15, "effect": "Drowsiness and confusion set in (CO2 retention)" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "You’re called to assess a 67M who presents to the ED with difficulty breathing. He is speaking in short sentences and appears anxious."
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "Which history elements would you explore?",
+        "options": [
+          { "label": "Duration of symptoms", "response": "Started 2 days ago, worsened today.", "score": 1 },
+          { "label": "Smoking history", "response": "50 pack-year history. Still smokes.", "score": 1 },
+          { "label": "Cough and sputum", "response": "Productive cough, yellow sputum", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Additional history?",
+        "options": [
+          { "label": "Past medical history", "response": "COPD for 10 years, frequent exacerbations", "score": 1 },
+          { "label": "Medications", "response": "Uses salbutamol inhaler, no steroids", "score": 0.5 },
+          { "label": "Fever or chills", "response": "Low-grade fever yesterday", "score": 0.5 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Physical exam findings:",
+        "options": [
+          { "label": "Check vitals", "response": "BP: 130/80, HR: 102, O2: 91% (room air), RR: 24", "score": 1 },
+          { "label": "Auscultate lungs", "response": "Diffuse wheezes, prolonged expiration", "score": 1 },
+          { "label": "General inspection", "response": "Mild cyanosis, using accessory muscles", "score": 0.5 }
+        ],
+        "next_step": "investigations"
+      },
+      {
+        "id": "investigations",
+        "type": "diagnostics",
+        "prompt": "Order initial tests:",
+        "tests": [
+          {
+            "name": "ABG",
+            "result": "pH 7.31, pCO2 55, pO2 65",
+            "time_to_result": 3,
+            "score": 2
+          },
+          {
+            "name": "Chest X-ray",
+            "result": "Hyperinflated lungs, no infiltrates",
+            "time_to_result": 4,
+            "score": 1
+          },
+          {
+            "name": "CBC",
+            "result": "WBC slightly elevated",
+            "time_to_result": 3,
+            "score": 0.5
+          },
+          {
+            "name": "ECG",
+            "result": "Sinus tachycardia",
+            "time_to_result": 2,
+            "score": 0
+          },
+          {
+            "name": "COVID-19 test",
+            "result": "Negative",
+            "time_to_result": 5,
+            "score": 0
+          }
+        ],
+        "next_step": "treatment1"
+      },
+      {
+        "id": "treatment1",
+        "type": "question",
+        "prompt": "Select initial management:",
+        "options": [
+          { "label": "Give nebulized salbutamol", "response": "Given. Breathing improves slightly.", "score": 1 },
+          { "label": "Start oxygen", "response": "Given via nasal cannula at 2L/min", "score": 0.5 },
+          { "label": "Start antibiotics", "response": "Oral doxycycline started", "score": 1 }
+        ],
+        "next_step": "treatment2"
+      },
+      {
+        "id": "treatment2",
+        "type": "question",
+        "prompt": "Next management?",
+        "options": [
+          { "label": "Start IV steroids", "response": "IV methylprednisolone given", "score": 1 },
+          { "label": "Prepare for intubation", "response": "Premature. Not required yet.", "score": -1 },
+          { "label": "Repeat ABG", "response": "Shows pCO2 58, O2 70", "score": 0.5 }
+        ],
+        "next_step": "monitoring"
+      },
+      {
+        "id": "monitoring",
+        "type": "question",
+        "prompt": "Monitor response:",
+        "options": [
+          { "label": "Check vitals again", "response": "O2 improved to 94%, RR now 20", "score": 1 },
+          { "label": "Observe without intervention", "response": "Risky. Could worsen quickly.", "score": -1 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "Enter your final diagnosis:",
+        "expected_answer": "COPD exacerbation"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Duration of symptoms",
+          "Smoking history",
+          "COPD for 10 years",
+          "Check vitals",
+          "Auscultate lungs",
+          "ABG",
+          "Chest X-ray",
+          "Nebulized salbutamol",
+          "IV steroids",
+          "Start antibiotics"
+        ],
+        "explanation": "This is a classic acute exacerbation of COPD (AECOPD). Supported by history, hyperinflated lungs, and ABG findings. Key treatment is bronchodilators, oxygen (low flow), steroids, and possibly antibiotics.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed a respiratory simulation with suspected COPD. Based on their decisions [INSERT TIMELINE], provide personalized feedback on accuracy, delays, and how well they managed the case."
+  }
+  

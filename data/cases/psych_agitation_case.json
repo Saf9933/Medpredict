@@ -1,0 +1,144 @@
+{
+    "title": "Fever and Fatigue in a 21-Year-Old Student",
+    "chief_complaint": "21F presents with 4 days of fever, sore throat, and extreme fatigue.",
+    "estimated_duration": "30 minutes",
+    "context": {
+      "time_limit": 30,
+      "vitals_drift": [
+        { "minutes": 5, "effect": "Temp rises to 39.2°C, HR 110" },
+        { "minutes": 10, "effect": "BP drops to 95/60, mild confusion reported" },
+        { "minutes": 15, "effect": "Signs of early sepsis: HR 125, hypotension" }
+      ]
+    },
+    "steps": [
+      {
+        "id": "arrival",
+        "type": "info",
+        "text": "Patient appears tired, flushed, and speaks slowly. She says, 'I've had fever and sore throat for days... I can't get out of bed.'"
+      },
+      {
+        "id": "hx1",
+        "type": "question",
+        "prompt": "Initial history questions:",
+        "options": [
+          { "label": "Ask about travel", "response": "Returned from Thailand 1 week ago.", "score": 1 },
+          { "label": "Ask about sore throat", "response": "Painful, hard to swallow, started 4 days ago", "score": 1 },
+          { "label": "Ask about fatigue", "response": "Severe, sleeps 12+ hours/day", "score": 1 }
+        ],
+        "next_step": "hx2"
+      },
+      {
+        "id": "hx2",
+        "type": "question",
+        "prompt": "Further history questions:",
+        "options": [
+          { "label": "Check for rash", "response": "No rash noted", "score": 0 },
+          { "label": "Ask about GI symptoms", "response": "Mild nausea, no diarrhea", "score": 0.5 },
+          { "label": "Ask about lymph nodes", "response": "Neck glands swollen and tender", "score": 1 }
+        ],
+        "next_step": "exam"
+      },
+      {
+        "id": "exam",
+        "type": "question",
+        "prompt": "Physical exam findings:",
+        "options": [
+          { "label": "Check vitals", "response": "Temp 39.1°C, HR 108, BP 102/68", "score": 1 },
+          { "label": "Examine throat", "response": "Tonsillar hypertrophy, white exudates", "score": 1 },
+          { "label": "Palpate spleen", "response": "Mild splenomegaly", "score": 1 }
+        ],
+        "next_step": "labs"
+      },
+      {
+        "id": "labs",
+        "type": "diagnostics",
+        "prompt": "Order initial labs:",
+        "tests": [
+          {
+            "name": "CBC",
+            "result": "WBC 11k, lymphocyte predominant",
+            "time_to_result": 3,
+            "score": 1
+          },
+          {
+            "name": "Monospot test",
+            "result": "Positive for EBV",
+            "time_to_result": 3,
+            "score": 2
+          },
+          {
+            "name": "Blood cultures",
+            "result": "Pending...",
+            "time_to_result": 10,
+            "score": 0
+          },
+          {
+            "name": "Liver enzymes",
+            "result": "Mild elevation in AST/ALT",
+            "time_to_result": 3,
+            "score": 0.5
+          },
+          {
+            "name": "Dengue antigen",
+            "result": "Negative",
+            "time_to_result": 4,
+            "score": 1
+          }
+        ],
+        "next_step": "management"
+      },
+      {
+        "id": "management",
+        "type": "question",
+        "prompt": "Initial management:",
+        "options": [
+          { "label": "Give IV fluids", "response": "1L NS started. BP stable.", "score": 1 },
+          { "label": "Start empiric antibiotics", "response": "Started IV ceftriaxone", "score": 0.5 },
+          { "label": "Advise rest and symptomatic treatment", "response": "Advised supportive care for viral illness", "score": 1 }
+        ],
+        "next_step": "decision"
+      },
+      {
+        "id": "decision",
+        "type": "question",
+        "prompt": "What do you do next?",
+        "options": [
+          { "label": "Monitor vitals regularly", "response": "Vitals stable after fluids", "score": 1 },
+          { "label": "Order CT abdomen", "response": "Unnecessary. No diagnostic value here.", "score": -1 }
+        ],
+        "next_step": "final"
+      },
+      {
+        "id": "final",
+        "type": "input",
+        "prompt": "Enter your final diagnosis:",
+        "expected_answer": "Infectious mononucleosis"
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "correct_path": [
+          "Ask about travel",
+          "Lymph nodes",
+          "Check vitals",
+          "Examine throat",
+          "Palpate spleen",
+          "CBC",
+          "Monospot test",
+          "Advise rest",
+          "Monitor vitals"
+        ],
+        "explanation": "The patient has classic EBV (infectious mononucleosis) supported by symptoms, splenomegaly, lymphocytosis, and a positive Monospot. Antibiotics and CT scan are unnecessary. Fluid support is reasonable due to dehydration.",
+        "scoring": {
+          "max_score": 15,
+          "thresholds": {
+            "excellent": 13,
+            "good": 10,
+            "needs_improvement": 7
+          }
+        }
+      }
+    ],
+    "gpt_feedback_prompt": "A student completed an infectious disease case involving fever and fatigue. Based on the timeline of their decisions [INSERT TIMELINE], provide detailed feedback on diagnosis accuracy, test ordering, and management. Highlight good reasoning and areas to improve."
+  }
+  

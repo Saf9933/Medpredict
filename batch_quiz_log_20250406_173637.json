@@ -1,0 +1,422 @@
+[
+  {
+    "index": 1,
+    "question": "Which of the following is not true for myelinated nerve fibers:",
+    "choices": [
+      "A. Impulse through myelinated fibers is slower than non-myelinated fibers",
+      "B. Membrane currents are generated at nodes of Ranvier",
+      "C. Saltatory conduction of impulses is seen",
+      "D. Local anesthesia is effective only when the nerve is not covered by myelin sheath"
+    ],
+    "correct_answer": "A",
+    "predicted": "B",
+    "confidence": 0.2909,
+    "correct": false,
+    "breakdown": {
+      "A": 0.1973,
+      "B": 0.2909,
+      "C": 0.2884,
+      "D": 0.2234
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 2,
+    "question": "Which of the following is not true about glomerular capillaries')",
+    "choices": [
+      "A. The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it",
+      "B. Glucose concentration in the capillaries is the same as that in glomerular filtrate",
+      "C. Constriction of afferent aeriole decreases the blood flow to the glomerulas",
+      "D. Hematocrit of the fluid leaving the capillaries is less than that of the fluid entering it"
+    ],
+    "correct_answer": "A",
+    "predicted": "B",
+    "confidence": 0.3032,
+    "correct": false,
+    "breakdown": {
+      "A": 0.199,
+      "B": 0.3032,
+      "C": 0.2554,
+      "D": 0.2424
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 3,
+    "question": "A 29 yrs old woman with a pregnancy of 17 week has a 10 years old boy with down syndrome. She does not want another down syndrome kid; best advice to her is",
+    "choices": [
+      "A. No test is required now as her age is below 35 years",
+      "B. Ultra sound at this point of time will definitely tell her that next baby will be down syndromic or not",
+      "C. Amniotic fluid samples plus chromosomal analysis will definitely tell her that next baby will be down syndromic or not",
+      "D. blood screening at this point of time will clear the exact picture"
+    ],
+    "correct_answer": "C",
+    "predicted": "C",
+    "confidence": 0.7125,
+    "correct": true,
+    "breakdown": {
+      "A": 0.0615,
+      "B": 0.0591,
+      "C": 0.7125,
+      "D": 0.1669
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "index": 4,
+    "question": "Axonal transport is:",
+    "choices": [
+      "A. Antegrade",
+      "B. Retrograde",
+      "C. Antegrade and retrograde",
+      "D. None"
+    ],
+    "correct_answer": "C",
+    "predicted": "B",
+    "confidence": 0.5833,
+    "correct": false,
+    "breakdown": {
+      "A": 0.0585,
+      "B": 0.5833,
+      "C": 0.351,
+      "D": 0.0072
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 5,
+    "question": "Low insulin to glucagon ratio is seen in all of these except:",
+    "choices": [
+      "A. Glycogen synthesis",
+      "B. Glycogen breakdown",
+      "C. Gluconeogenesis",
+      "D. Ketogenesis"
+    ],
+    "correct_answer": "A",
+    "predicted": "B",
+    "confidence": 0.2901,
+    "correct": false,
+    "breakdown": {
+      "A": 0.2553,
+      "B": 0.2901,
+      "C": 0.2679,
+      "D": 0.1867
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 6,
+    "question": "Concentration of tropicamide:",
+    "choices": [
+      "A. 0.01",
+      "B. 0.02",
+      "C. 0.03",
+      "D. 0.04"
+    ],
+    "correct_answer": "A",
+    "predicted": "C",
+    "confidence": 0.345,
+    "correct": false,
+    "breakdown": {
+      "A": 0.1687,
+      "B": 0.3191,
+      "C": 0.345,
+      "D": 0.1672
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 7,
+    "question": "Which of the following statements is true regarding H I N1 Influenza?",
+    "choices": [
+      "A. Pregnant woman with sore throat can be staed immediately on oseltamivir without diagnostic testing under category B",
+      "B. People on long-term steroids cannot receive Os-eltam ivir",
+      "C. Category B concerns with low risk cases",
+      "D. Category B patients have to undergo immediate testing"
+    ],
+    "correct_answer": "A",
+    "predicted": "C",
+    "confidence": 0.4691,
+    "correct": false,
+    "breakdown": {
+      "A": 0.1954,
+      "B": 0.1375,
+      "C": 0.4691,
+      "D": 0.198
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 8,
+    "question": "Which of the following are not a branch of external carotid Aery in Kiesselbach's plexus.",
+    "choices": [
+      "A. Sphenopalatine aery",
+      "B. Anterior ethmoidal aery",
+      "C. Greater palatine aery",
+      "D. Septal branch of superior labial aery"
+    ],
+    "correct_answer": "B",
+    "predicted": "D",
+    "confidence": 0.4744,
+    "correct": false,
+    "breakdown": {
+      "A": 0.1061,
+      "B": 0.1611,
+      "C": 0.2584,
+      "D": 0.4744
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 9,
+    "question": "Diagnosis of the following ECG-",
+    "choices": [
+      "A. Ventricular bigeminy",
+      "B. Electrical alternans",
+      "C. P pulmonale",
+      "D. Left ventricular failure"
+    ],
+    "correct_answer": "B",
+    "predicted": "A",
+    "confidence": 0.709,
+    "correct": false,
+    "breakdown": {
+      "A": 0.709,
+      "B": 0.2293,
+      "C": 0.0341,
+      "D": 0.0276
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "index": 10,
+    "question": "A blue new born presents with cyanosis. The X\u2013ray chest reveal oligaemic lung field and normal sized heart. Most likely diagnosis is \u2013",
+    "choices": [
+      "A. Ebstein's anomaly",
+      "B. Pulmonary atresia",
+      "C. Transposition of great arteries",
+      "D. Tetralogy of fallot"
+    ],
+    "correct_answer": "B",
+    "predicted": "C",
+    "confidence": 0.5378,
+    "correct": false,
+    "breakdown": {
+      "A": 0.0463,
+      "B": 0.0479,
+      "C": 0.5378,
+      "D": 0.3679
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 11,
+    "question": "27.\tThe lateral spread of dental caries is facilitated mostly  by the",
+    "choices": [
+      "A. Enamel spindles",
+      "B. Dentinoenamel junction",
+      "C. Enamel lamellae",
+      "D. Striae of Retzius"
+    ],
+    "correct_answer": "B",
+    "predicted": "B",
+    "confidence": 0.628,
+    "correct": true,
+    "breakdown": {
+      "A": 0.0847,
+      "B": 0.628,
+      "C": 0.1367,
+      "D": 0.1506
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "index": 12,
+    "question": "A second-year PG resident tells you to perform an ABG of a patient. All of the following are true about performing an ABG except:",
+    "choices": [
+      "A. Before performing the ABG, syringe should be loaded with 0.3 cc of heparin",
+      "B. Normal pH, HCO. and PCO, levels may not indicate absence of an acid-base imbalance",
+      "C. A different site should be tried i f modified Allen's test is negative",
+      "D. Radial aery is the preferred site"
+    ],
+    "correct_answer": "A",
+    "predicted": "C",
+    "confidence": 0.3262,
+    "correct": false,
+    "breakdown": {
+      "A": 0.2603,
+      "B": 0.2174,
+      "C": 0.3262,
+      "D": 0.1962
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 13,
+    "question": "Respiratory rhythm generation center is located at:",
+    "choices": [
+      "A. Dorsal respiratory group",
+      "B. Pre-Botzinger complex",
+      "C. Ventral respiratory neurons",
+      "D. Pneumotaxic center"
+    ],
+    "correct_answer": "B",
+    "predicted": "B",
+    "confidence": 0.9465,
+    "correct": true,
+    "breakdown": {
+      "A": 0.0206,
+      "B": 0.9465,
+      "C": 0.02,
+      "D": 0.0128
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "index": 14,
+    "question": "Gait apraxia is seen in thromboembolic episode involving:",
+    "choices": [
+      "A. ACA",
+      "B. MCA",
+      "C. PCA",
+      "D. Posterior choroidal aery"
+    ],
+    "correct_answer": "A",
+    "predicted": "A",
+    "confidence": 0.5903,
+    "correct": true,
+    "breakdown": {
+      "A": 0.5903,
+      "B": 0.3154,
+      "C": 0.0651,
+      "D": 0.0292
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 15,
+    "question": "Heavy forces on periodontal ligament causes:",
+    "choices": [
+      "A. Hyalinization",
+      "B. Osteoclastic activity around tooth",
+      "C. Osteoblastic activity around tooth",
+      "D. Crest bone resorption"
+    ],
+    "correct_answer": "A",
+    "predicted": "B",
+    "confidence": 0.5975,
+    "correct": false,
+    "breakdown": {
+      "A": 0.3331,
+      "B": 0.5975,
+      "C": 0.0478,
+      "D": 0.0216
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 16,
+    "question": "About N. gonorrhoea, all are true except",
+    "choices": [
+      "A. Most common cause of urethritis in male",
+      "B. All stains are highly susceptible to penicillin",
+      "C. Wide spread axoregnic stains cause disseminated gonococcal infection",
+      "D. Found exclusively in human beings"
+    ],
+    "correct_answer": "B",
+    "predicted": "C",
+    "confidence": 0.2841,
+    "correct": false,
+    "breakdown": {
+      "A": 0.2461,
+      "B": 0.223,
+      "C": 0.2841,
+      "D": 0.2469
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 17,
+    "question": "A patient who was on ventilator and being ventilated for past few days, suddenly pulls out the endotracheal tube. What is the next step of management?",
+    "choices": [
+      "A. Assess the patient, give bag and mask ventilation and look for spontaneous breathing",
+      "B. Sta bag and mask ventilation and reintubate",
+      "C. Sedate and reintubate",
+      "D. Make him sit and do physiotherapy"
+    ],
+    "correct_answer": "A",
+    "predicted": "A",
+    "confidence": 0.949,
+    "correct": true,
+    "breakdown": {
+      "A": 0.949,
+      "B": 0.0388,
+      "C": 0.0042,
+      "D": 0.0081
+    },
+    "difficulty": "Easy"
+  },
+  {
+    "index": 18,
+    "question": "In a\t6-month-old child, thick curd like white\tpatch\nappears on the buccal mucosa. On rubbing it leaves an\nerythematous patch. Most likely diagnosis is:",
+    "choices": [
+      "A. Tuberculosis",
+      "B. Lichen planus",
+      "C. Lupus erythematous",
+      "D. Candidiasis"
+    ],
+    "correct_answer": "D",
+    "predicted": "B",
+    "confidence": 0.7694,
+    "correct": false,
+    "breakdown": {
+      "A": 0.1076,
+      "B": 0.7694,
+      "C": 0.0466,
+      "D": 0.0763
+    },
+    "difficulty": "Medium"
+  },
+  {
+    "index": 19,
+    "question": "Characteristic of venous blood flow of lower limb in duplex Doppler is?",
+    "choices": [
+      "A. Monophasic",
+      "B. Biphasic",
+      "C. Triphasic",
+      "D. Non phasic"
+    ],
+    "correct_answer": "A",
+    "predicted": "A",
+    "confidence": 0.4499,
+    "correct": true,
+    "breakdown": {
+      "A": 0.4499,
+      "B": 0.1809,
+      "C": 0.3144,
+      "D": 0.0548
+    },
+    "difficulty": "Hard"
+  },
+  {
+    "index": 20,
+    "question": "The source of calcium ions of a calcific bridge in a\ntooth in which calcium hydroxide pulpotomy has been\nperformed is:",
+    "choices": [
+      "A. Blood vessel borne",
+      "B. Derided cells",
+      "C. Dentin",
+      "D. From the calcium hydroxide"
+    ],
+    "correct_answer": "A",
+    "predicted": "C",
+    "confidence": 0.8296,
+    "correct": false,
+    "breakdown": {
+      "A": 0.0388,
+      "B": 0.0357,
+      "C": 0.8296,
+      "D": 0.0958
+    },
+    "difficulty": "Medium"
+  }
+]
