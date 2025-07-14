@@ -1,0 +1,51 @@
+[
+    {
+      "system": "Cardiovascular",
+      "emoji": "🫀",
+      "title": "Chest Pain in a 54-Year-Old",
+      "filename": "cardio_stemi_case.json"
+    },
+    {
+      "system": "Respiratory",
+      "emoji": "🫁",
+      "title": "Sudden Shortness of Breath",
+      "filename": "resp_copd_case.json"
+    },
+    {
+      "system": "Neurology",
+      "emoji": "🧠",
+      "title": "Confusion in an Elderly Patient",
+      "filename": "neuro_confusion_case.json"
+    },
+    {
+      "system": "Gastrointestinal",
+      "emoji": "🍔",
+      "title": "Abdominal Pain in a Young Woman",
+      "filename": "gi_abdopain_case.json"
+    },
+    {
+      "system": "Infectious Disease",
+      "emoji": "🧬",
+      "title": "Persistent Fever in a Student",
+      "filename": "id_fever_case.json"
+    },
+    {
+      "system": "Psychiatry",
+      "emoji": "🧠",
+      "title": "Agitation in the ER",
+      "filename": "psych_agitation_case.json"
+    },
+    {
+      "system": "Pediatrics",
+      "emoji": "🧒",
+      "title": "Toddler with Cough and Fever",
+      "filename": "peds_cough_case.json"
+    },
+    {
+      "system": "Medical Ethics",
+      "emoji": "🧑‍⚕️",
+      "title": "End-of-Life Decision Making",
+      "filename": "ethics_dnr_case.json"
+    }
+  ]
+  
